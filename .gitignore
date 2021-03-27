@@ -5,5 +5,4 @@
 !.gitignore
 !.emacs
 !.bashrc
-!.profile
 !.tmux.conf
