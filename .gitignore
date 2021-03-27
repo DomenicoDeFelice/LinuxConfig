@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# Except these files:
+!.gitignore
+!.emacs
+!.bashrc
+!.profile
+!.tmux.conf
