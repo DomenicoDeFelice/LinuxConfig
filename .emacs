@@ -144,6 +144,20 @@
 
 
 ;; Custom functions
+
+;; From https://emacsredux.com/blog/2013/03/28/google/
+(defun google ()
+  "Google the selected region if any, display a query prompt otherwise."
+  (interactive)
+  (browse-url
+   (concat
+    "https://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    (url-hexify-string (if mark-active
+			   (buffer-substring (region-beginning) (region-end))
+			 (read-string "Google: "))))))
+(global-set-key (kbd "C-c g") 'google)
+
+;; From https://emacsredux.com/blog/2013/03/27/copy-filename-to-the-clipboard/
 (defun ddom-copy-file-name ()
   "Copy the current buffer file name to the clipboard."
   (interactive)
@@ -154,6 +168,7 @@
       (kill-new filename)
       (message "Copied %s" filename))))
 
+;; From https://www.emacswiki.org/emacs/IncrementNumber
 (defun ddom-increment-number-at-point (&optional arg)
   "Increment the number forward from point by 'arg'."
   (interactive "p*")
