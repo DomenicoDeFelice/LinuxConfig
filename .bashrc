@@ -65,7 +65,7 @@ alias grep='grep --color=always'
 alias less='less -R'
 alias fbgs="fbgs -s --color=on -f '\.py$'"
 
-# Attach to session named "auto" (starting if it doesn't exist)
-if [[ ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
-  tmux $TMUX_OPTIONS new-session -As auto
+# If not on my local machine, attach to session named "auto" (starting if it doesn't exist)
+if [[ ! $(hostname) = *domdefelice* && ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
+    tmux $TMUX_OPTIONS new-session -As auto
 fi
