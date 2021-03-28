@@ -12,6 +12,15 @@
 (global-set-key (kbd "M-n") (kbd "C-u 1 C-v"))
 (global-set-key (kbd "M-p") (kbd "C-u 1 M-v"))
 
+
+;; Setup proxy to talk to internet
+(unless (string-match-p ".*domdefelice.*" (system-name))
+  (setq url-proxy-services
+        '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+	  ("http" . "fwdproxy:8080")
+	  ("https" . "fwdproxy:8080"))))
+
+
 ;; MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -87,13 +96,6 @@
 
 (setq confirm-kill-emacs 'y-or-n-p)
 (when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
-
-
-;; Setup proxy to talk to internet
-;; (setq url-proxy-services
-;;    '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-;;      ("http" . "fwdproxy:8080")
-;;      ("https" . "fwdproxy:8080")))
 
 
 ;; web-mode
