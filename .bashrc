@@ -23,7 +23,7 @@ if [ -f $LOCAL_ADMIN_SCRIPTS/scm-prompt ]; then
 fi
 
 function parse_hg_branch {
-    if command -v _dotfiles_scm_info; then
+    if command -v _dotfiles_scm_info > /dev/null 2>&1; then
 	if [[ -n $(_dotfiles_scm_info) ]]; then
             # wrap in parens
             echo "$(_dotfiles_scm_info)"
