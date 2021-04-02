@@ -30,7 +30,7 @@
 (package-initialize)
 
 ;; Ensure needed packages are installed.
-(dolist (package '(guru-mode counsel))
+(dolist (package '(use-package guru-mode counsel scala-mode))
    (unless (package-installed-p package)
      (package-install package)
      (require package)))
@@ -96,6 +96,12 @@
 
 (setq confirm-kill-emacs 'y-or-n-p)
 (when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
+
+
+;; scala-mode
+(use-package scala-mode
+  :interpreter
+  ("scala" . scala-mode))
 
 
 ;; web-mode
