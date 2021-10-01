@@ -14,7 +14,9 @@
 
 
 ;; Setup proxy to talk to internet
-(unless (string-match-p ".*domdefelice.*" (system-name))
+(unless (or
+	 (string-match-p ".*domdefelice.*" (system-name))
+	 (string-match-p ".*pop-os.*" (system-name)))
   (setq url-proxy-services
         '(("no_proxy" . "^\\(localhost\\|10.*\\)")
 	  ("http" . "fwdproxy:8080")
@@ -30,7 +32,7 @@
 (package-initialize)
 
 ;; Ensure needed packages are installed.
-(dolist (package '(use-package guru-mode counsel scala-mode))
+(dolist (package '(use-package counsel monky thrift graphql auto-complete guru-mode web-mode prettier-js hack-mode scala-mode))
    (unless (package-installed-p package)
      (package-install package)
      (require package)))
@@ -71,6 +73,16 @@
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
+
+
+;; No tabs indentation
+(setq-default indent-tabs-mode nil)
+(setq tab-width 2)
+(setq js-indent-level 2)
+(setq css-indent-offset 2)
+(setq c-indent-offset 2)
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
 
 
 ;; Hack For HipHop
