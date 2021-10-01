@@ -70,3 +70,7 @@ alias emacsall="hg d -r.^ --stat | awk '{ print \$1 }' | sed 's/fbcode\///' | he
 if [[ ! $(hostname) = *domdefelice* && ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
     tmux $TMUX_OPTIONS new-session -As auto
 fi
+
+# Disable XON/XOFF flow control on interactive shells.
+# This allows searching forward (C-s) through the bash history.
+[[ $- == *i* ]] && stty -ixon
