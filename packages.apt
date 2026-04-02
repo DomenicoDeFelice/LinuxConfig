@@ -1,5 +1,6 @@
 apt-file
 clang
+clangd
 clang-format
 curl
 direnv

@@ -380,7 +380,11 @@
   ;; ElDoc: show signatures and docs ("strcmp(…)").
   (setq eldoc-idle-delay 0.1
         eldoc-echo-area-use-multiline-p 3      ; up to 3 lines in echo area
-        eldoc-echo-area-prefer-doc-buffer t)
+        eldoc-echo-area-prefer-doc-buffer t
+        ;;; Collect output from all sources (eglot signatures, documentation, and
+        ;;; flymake diagnostics) and display them together, both in the echo area
+        ;;; and in the eldoc buffer.
+        eldoc-documentation-strategy #'eldoc-documentation-compose)
 
   ;; ── clangd ──
   (add-to-list 'eglot-server-programs
