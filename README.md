@@ -18,3 +18,11 @@ stow -t ~ -D tmux
 ```
 
 Each top-level directory is a stow package.
+
+## Packages
+
+`packages.txt` lists manually installed Debian packages. To restore them:
+
+```bash
+sudo xargs apt install -y < packages.txt
+```
