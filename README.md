@@ -6,7 +6,15 @@ Configuration files for my Linux setup, managed with [GNU Stow](https://www.gnu.
 
 ```bash
 cd ~/dotfiles
-stow -t ~ home
+
+# Install everything
+stow -t ~ */
+
+# Install specific packages
+stow -t ~ bash emacs
+
+# Remove a package
+stow -t ~ -D tmux
 ```
 
-This creates symlinks in `~` pointing to the files in `home/`.
+Each top-level directory is a stow package.
