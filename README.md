@@ -26,3 +26,12 @@ Package lists are stored in `packages.*` files. To install everything:
 ```bash
 ./bootstrap.sh
 ```
+
+## Emacs
+
+On first launch, run:
+
+1. `M-x dom/treesit-install-all-grammars`
+2. `M-x nerd-icons-install-fonts`
+
+Then restart Emacs.
