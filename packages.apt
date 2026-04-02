@@ -2,12 +2,16 @@ apt-file
 clang
 clang-format
 curl
+direnv
 emacs-nox
+fd-find
+fonts-jetbrains-mono
 foot
 git
 golang-go
 lsof
 man-db
+ripgrep
 rustup
 stow
 sway
@@ -15,8 +19,8 @@ swaybg
 swayidle
 swaylock
 task-kde-desktop
-task-xfce-desktop
 task-ssh-server
+task-xfce-desktop
 tmux
 traceroute
 waybar

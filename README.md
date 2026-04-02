@@ -21,8 +21,8 @@ Each top-level directory is a stow package.
 
 ## Packages
 
-`packages.txt` lists manually installed Debian packages. To restore them:
+Package lists are stored in `packages.*` files. To install everything:
 
 ```bash
-sudo xargs apt install -y < packages.txt
+./bootstrap.sh
 ```
