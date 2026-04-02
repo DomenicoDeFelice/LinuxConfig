@@ -1,6 +1,6 @@
 # Dotfiles
 
-Configuration files for my Linux setup, managed with [GNU Stow](https://www.gnu.org/software/stow/).
+Configuration files for my Debian GNU/Linux setup, managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 ## Usage
 
