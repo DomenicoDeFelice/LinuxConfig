@@ -85,7 +85,6 @@ function parse_hg_branch {
     fi
 }
 
-# Show current hg bookmark
 function hgproml {
     local        BLUE="\[\033[0;34m\]"
     local         RED="\[\033[0;31m\]"
@@ -97,8 +96,7 @@ function hgproml {
     local RESET_COLOR="\[\033[0m\]"
 
     export PS1="\
-$LIGHT_GREEN[\u:\w$LIGHT_RED:\$(parse_hg_branch)$LIGHT_GREEN]\
-\$$RESET_COLOR "
+$LIGHT_GREEN\u$LIGHT_GRAY@$LIGHT_GREEN\h $WHITE\w$LIGHT_GRAY \$$RESET_COLOR "
     PS2='> '
     PS4='+ '
 }
