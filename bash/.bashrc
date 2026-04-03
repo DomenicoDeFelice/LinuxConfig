@@ -103,9 +103,10 @@ $LIGHT_GREEN\u$LIGHT_GRAY@$LIGHT_GREEN\h $WHITE\w$LIGHT_GRAY \$$RESET_COLOR "
     PS2='> '
     PS4='+ '
 }
-hgproml
+# hgproml
 
 # PS1="[\e[1;92m\u \e[1;94m\$PWD\e[m]\$ "
+PS1='\[\e[32m\]┌──(\[\e[94;1m\]\u\[\e[94m\]@\[\e[94m\]\h\[\e[0;32m\])-[\[\e[38;5;46;1m\]\w\[\e[0;32m\]] [\[\e[32m\]$?\[\e[32m\]]\n\[\e[32m\]╰─\[\e[94;1m\]\$\[\e[0m\] '
 
 # If on my personal laptop, launch tmux.
 if [[ $(hostname) = *pop-os* && ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then

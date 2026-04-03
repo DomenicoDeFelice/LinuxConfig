@@ -510,7 +510,7 @@
 
 ;; ── C / C++ ──────────────────────────────────────────────────────────
 (add-hook 'c-ts-mode-hook
-          (lambda () (setq-local c-ts-mode-indent-offset 4)))
+          (lambda () (setq-local c-ts-mode-indent-offset 2)))
 (add-hook 'c++-ts-mode-hook
           (lambda () (setq-local c-ts-mode-indent-offset 4)))
 ;; Legacy cc-mode fallback.
