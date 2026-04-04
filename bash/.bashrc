@@ -106,7 +106,7 @@ $LIGHT_GREEN\u$LIGHT_GRAY@$LIGHT_GREEN\h $WHITE\w$LIGHT_GRAY \$$RESET_COLOR "
 # hgproml
 
 # PS1="[\e[1;92m\u \e[1;94m\$PWD\e[m]\$ "
-PS1='\[\e[32m\]┌──(\[\e[94;1m\]\u\[\e[94m\]@\[\e[94m\]\h\[\e[0;32m\])-[\[\e[38;5;46;1m\]\w\[\e[0;32m\]] [\[\e[32m\]$?\[\e[32m\]]\n\[\e[32m\]╰─\[\e[94;1m\]\$\[\e[0m\] '
+PS1='\n\[\e[32m\]┌──(\[\e[94;1m\]\u\[\e[94m\]@\[\e[94m\]\h\[\e[0;32m\])-[\[\e[38;5;46;1m\]\w\[\e[0;32m\]] [\[\e[32m\]$?\[\e[32m\]]\n\[\e[32m\]╰─\[\e[94;1m\]\$\[\e[0m\] '
 
 # If on my personal laptop, launch tmux.
 if [[ $(hostname) = *pop-os* && ! $TMUX && -t 0 && $TERM_PROGRAM != vscode ]]; then
@@ -121,3 +121,9 @@ fi
 # Disable XON/XOFF flow control on interactive shells.
 # This allows searching forward (C-s) through the bash history.
 [[ $- == *i* ]] && stty -ixon
+
+# Pull latest value for these env variables from tmux's global environment.
+if [ -n "$TMUX" ]; then
+    eval "$(tmux show-environment -s SWAYSOCK 2>/dev/null)"
+    eval "$(tmux show-environment -s WAYLAND_DISPLAY 2>/dev/null)"
+fi
