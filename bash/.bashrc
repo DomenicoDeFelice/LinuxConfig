@@ -31,20 +31,6 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
-# Set PATH so it includes user's private bin if it exists.
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-if [ -d "$HOME/go/bin" ] ; then
-    PATH="$HOME/go/bin:$PATH"
-fi
-
-export PATH
-export EDITOR=emacs
-
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1).
 HISTSIZE=1000000
 HISTFILESIZE=-1
