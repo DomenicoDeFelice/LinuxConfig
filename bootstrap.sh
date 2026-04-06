@@ -22,7 +22,7 @@ install_packages() {
 }
 
 install_packages packages.apt sudo apt install -y
-install_packages packages.go go install
+install_packages --one-by-one packages.go go install
 install_packages packages.cargo cargo install
 install_packages packages.rustup rustup component add
 install_packages --one-by-one packages.uv uv tool install

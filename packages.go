@@ -1,1 +1,3 @@
 golang.org/x/tools/gopls@latest
+golang.org/x/tools/cmd/goimports@latest
+

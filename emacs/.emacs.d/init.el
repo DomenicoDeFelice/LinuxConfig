@@ -526,13 +526,13 @@
 (dolist (hook '(go-mode-hook go-ts-mode-hook))
   (add-hook hook (lambda ()
                    (setq-local indent-tabs-mode t
-                               tab-width 4))))
+                               tab-width 4
+                               go-ts-mode-indent-offset 4))))
 
-;; Organize imports on save via eglot (apheleia handles gofmt).
-(defun dom/go-organize-imports ()
-  (when (and (derived-mode-p 'go-mode 'go-ts-mode) (eglot-managed-p))
-    (eglot-code-action-organize-imports (point-min) (point-max))))
-(add-hook 'before-save-hook #'dom/go-organize-imports)
+(with-eval-after-load 'apheleia
+  (setf (alist-get 'go-ts-mode apheleia-mode-alist) 'goimports)
+  (setf (alist-get 'goimports apheleia-formatters)
+        '("goimports")))
 
 ;; go.mod support.
 (add-to-list 'auto-mode-alist '("go\\.mod\\'" . go-mod-ts-mode))
