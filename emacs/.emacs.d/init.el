@@ -65,7 +65,7 @@
 (setq-default indent-tabs-mode nil
               tab-width 4
               fill-column 80
-              truncate-lines t)
+              truncate-lines nil)
 
 (setq read-process-output-max (* 4 1024 1024) ; 4 MB – LSP throughput
       sentence-end-double-space nil
@@ -102,6 +102,7 @@
       ediff-split-window-function #'split-window-horizontally)
 
 ;; ── UI modes ─────────────────────────────────────────────────────────
+(global-visual-line-mode 1)
 (blink-cursor-mode -1)
 (pixel-scroll-precision-mode 1)
 (column-number-mode 1)
