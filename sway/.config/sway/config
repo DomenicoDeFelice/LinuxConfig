@@ -245,20 +245,24 @@ bindswitch --reload lid:off output eDP-1 enable
 set $ws1 "1: firefox"
 set $ws2 "2: emacs"
 set $ws3 "3: foot"
+set $ws4 "4: 🧭Compass"
 
 # Assign windows to workspaces
 assign [app_id="firefox-esr"] workspace $ws1
 assign [app_id="emacs"] workspace $ws2
 assign [app_id="foot"] workspace $ws3
+assign [app_id="obsidian"] workspace $ws4
 
 # Fullscreen on launch
 for_window [app_id="firefox-esr"] fullscreen enable
 for_window [app_id="emacs"] fullscreen enable
 for_window [app_id="foot"] fullscreen enable
+for_window [app_id="obsidian"] fullscreen enable
 
 # Autostart
 exec firefox-esr
 exec emacs
 exec foot
+exec obsidian
 
 include /etc/sway/config.d/*

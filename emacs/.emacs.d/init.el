@@ -108,10 +108,13 @@
 (column-number-mode 1)
 (delete-selection-mode 1)
 (electric-pair-mode 1)
+(setq electric-pair-inhibit-predicate
+      (lambda (char)
+        (member char '(?\( ?' ?\" ?\`))))
 (show-paren-mode 1)
 (setq show-paren-delay 0
       show-paren-context-when-offscreen 'overlay)
-(global-subword-mode 1)                ; camelCase navigation (Go, C++, Rust)
+;; (global-subword-mode 1)                ; camelCase navigation (Go, C++, Rust)
 (winner-mode 1)                        ; C-c left/right to undo window changes
 (repeat-mode 1)                        ; after C-x o, just press o o o…
 (minibuffer-depth-indicate-mode 1)
